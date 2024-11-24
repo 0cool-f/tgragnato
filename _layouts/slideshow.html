@@ -10,7 +10,7 @@ layout: compress
         <section class="slideshow">
 {% for image in page.images %}
           <figure class="slideshow-item{% if loop.first %} is-active{% endif %}">
-            <img src="{{ image.loc }}" alt="{{ image.caption | default: post.description }}">
+            <img src="{{ image.loc }}" alt="{{ image.caption | default: post.description }}" {% if loop.first != true %}loading="lazy"{% endif %}>
             {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
           </figure>
 {% endfor %}
